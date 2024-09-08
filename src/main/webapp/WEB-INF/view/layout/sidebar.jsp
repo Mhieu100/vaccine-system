@@ -38,6 +38,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/locations/">
+                <i class="bi bi-people"></i>
+                <span>Khu tiêm chủng</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/schedules/">
                 <i class="bi bi-people"></i>
                 <span>Lịch tiêm</span>
