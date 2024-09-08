@@ -5,9 +5,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import team.project.model.Doctor;
-import team.project.model.Patient;
+import team.project.model.Location;
 
 @Repository
-public interface DoctorRepository extends JpaRepository<Doctor, Long> {
-    Page<Doctor> findAll(Pageable pageable);
+public interface LocationRepository extends JpaRepository<Location, Long> {
+    Page<Location> findAll(Pageable pageable);
 }

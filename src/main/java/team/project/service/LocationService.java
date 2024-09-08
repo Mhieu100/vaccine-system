@@ -4,37 +4,37 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import team.project.model.Doctor;
-import team.project.model.Patient;
+import team.project.model.Location;
 import team.project.repository.DoctorRepository;
-import team.project.repository.PatientRepository;
+import team.project.repository.LocationRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DoctorService {
-    private final DoctorRepository doctorRepository;
-    public DoctorService(DoctorRepository doctorRepository) {
-        this.doctorRepository = doctorRepository;
+public class LocationService {
+    private final LocationRepository locationRepository;
+    public LocationService(LocationRepository locationRepository) {
+        this.locationRepository = locationRepository;
     }
 
-    public List<Doctor> findAll() {
-        return doctorRepository.findAll();
+    public List<Location> findAll() {
+        return locationRepository.findAll();
     }
 
-    public Page<Doctor> findAll(Pageable pageable) {
-        return doctorRepository.findAll(pageable);
+    public Page<Location> findAll(Pageable pageable) {
+        return locationRepository.findAll(pageable);
     }
 
-    public Optional<Doctor> findById(long id) {
-        return doctorRepository.findById(id);
+    public Optional<Location> findById(long id) {
+        return locationRepository.findById(id);
     }
 
-    public Doctor save(Doctor doctor) {
-        return doctorRepository.save(doctor);
+    public Location save(Location location) {
+        return locationRepository.save(location);
     }
 
     public void deleteById(long id) {
-        doctorRepository.deleteById(id);
+        locationRepository.deleteById(id);
     }
 }
