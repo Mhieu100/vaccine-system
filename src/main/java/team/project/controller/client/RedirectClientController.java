@@ -6,9 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RedirectClientController {
 
-    @GetMapping
+	@GetMapping("/")
+	public String auto() {
+		return "redirect:/home";
+	}
+
+    @GetMapping("/home")
 	public String ui_home() {
 		return "client/home";
+	}
+
+	@GetMapping("/store")
+	public String ui_store() {
+		return "client/store";
 	}
 
 }

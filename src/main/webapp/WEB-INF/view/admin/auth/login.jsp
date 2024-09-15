@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Quản trị hệ thống</title>
-  <jsp:include page="../layout/cssLink.jsp" />
+  <jsp:include page="../../layout/cssLink.jsp" />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                     <div class="col-12">
                       <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <input type="email" name="username" class="form-control" id="email" required>
                         <div class="invalid-feedback">Email không hợp lệ</div>
                       </div>
                     </div>
@@ -52,7 +52,7 @@
       </section>
     </div>
   </main>
-  <jsp:include page="../layout/jsLink.jsp" />
+  <jsp:include page="../../layout/jsLink.jsp" />
 </body>
 
 </html>

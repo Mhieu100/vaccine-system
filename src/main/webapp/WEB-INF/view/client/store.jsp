@@ -12,5 +12,8 @@
 <body>
     <!-- ======= Header ======= -->
     <jsp:include page="layout/header.jsp" />
+    <main>
+        <h1>Store</h1>
+    </main>
 </body>
 </html>
