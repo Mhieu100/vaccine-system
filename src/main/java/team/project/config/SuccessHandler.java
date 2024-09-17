@@ -38,7 +38,6 @@ public class SuccessHandler  implements AuthenticationSuccessHandler {
         }
 
         redirectStrategy.sendRedirect(request, response, targetUrl);
-
         clearAuthenticationAttributes(request, authentication);
 
     }
@@ -46,7 +45,9 @@ public class SuccessHandler  implements AuthenticationSuccessHandler {
     protected String determineTargetUrl(final Authentication authentication) {
 
         Map<String, String> roleTargetUrlMap = new HashMap<>();
-        roleTargetUrlMap.put("ROLE_USER", "/");
+        roleTargetUrlMap.put("ROLE_PATIENT", "/");
+        roleTargetUrlMap.put("ROLE_RECEPTIONIST", "/admin/");
+        roleTargetUrlMap.put("ROLE_DOCTOR", "/admin/");
         roleTargetUrlMap.put("ROLE_ADMIN", "/admin/");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -66,13 +67,13 @@ public class SuccessHandler  implements AuthenticationSuccessHandler {
             return;
         }
         session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-
         User user = userService.getUserByEmail(authentication.getName());
-
         if (user != null) {
-            session.setAttribute("user", user);
-        }
 
+            session.setAttribute("fullname", user.getFullName());
+            session.setAttribute("id", user.getId());
+            session.setAttribute("email", user.getEmail());
+        }
     }
 
 }

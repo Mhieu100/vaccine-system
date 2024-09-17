@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Quản trị hệ thống</title>
-  <jsp:include page="../../layout/cssLink.jsp" />
+  <jsp:include page="../layout/cssLink.jsp" />
 </head>
 
 <body>
@@ -52,7 +52,7 @@
       </section>
     </div>
   </main>
-  <jsp:include page="../../layout/jsLink.jsp" />
+  <jsp:include page="../layout/jsLink.jsp" />
 </body>
 
 </html>

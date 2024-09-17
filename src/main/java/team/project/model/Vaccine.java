@@ -24,7 +24,7 @@ public class Vaccine {
     String name;
 
     @NotNull(message = "Giá không được trống")
-    Double price;
+    Integer price;
 
     @NotBlank(message = "Nơi sản xuất không được trống")
     String country;

@@ -51,20 +51,19 @@ public class SecurityConfig {
                         (authorize -> authorize
                                 .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE).permitAll()
                                 .requestMatchers("/", "/home", "/register", "/css/**", "/js/**", "/images/**").permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/admin/**").hasAnyRole("ADMIN", "DOCTOR", "RECEPTIONIST")
                                 .anyRequest().authenticated())
-//                .sessionManagement(session -> session
-//                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-//                        .invalidSessionUrl("/logout?expired")
-//                        .maximumSessions(1)
-//                        .maxSessionsPreventsLogin(false))
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                        .invalidSessionUrl("/logout?expired")
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(false))
                 .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
                 .formLogin(formLogin -> formLogin.loginPage("/login")
-//                        .failureUrl("/login?error")
+                        .failureUrl("/login?error")
                         .successHandler(authenticationSuccessHandler())
                         .permitAll())
                 .exceptionHandling(ex -> ex.accessDeniedPage("/access-deny"));
-
         http.csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }
