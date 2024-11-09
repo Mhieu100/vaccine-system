@@ -14,8 +14,8 @@
 <body>
     <!-- ======= Header ======= -->
     <jsp:include page="layout/header.jsp" />
-    <section style="background-color: #eee;">
-        <div class="container py-3">
+    <section class="mt-5" style="background-color: #eee;">
+        <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card mb-4">

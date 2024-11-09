@@ -1,11 +1,15 @@
 package team.project.controller.client;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.apache.commons.codec.binary.Hex;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import team.project.service.PatientService;
+import team.project.service.UserService;
+import team.project.service.VaccineService;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -18,6 +22,15 @@ import java.util.stream.Collectors;
 
 @Controller
 public class PaymentController {
+
+    private final VaccineService vaccineService;
+    private final PatientService patientService;
+    private final UserService userService;
+    public PaymentController(VaccineService vaccineService, PatientService patientService, UserService userService) {
+        this.vaccineService = vaccineService;
+        this.patientService = patientService;
+        this.userService = userService;
+    }
 
     @RequestMapping("/payment")
     public String payment(@RequestParam(value = "totalPrice") int totalPrice,
@@ -93,7 +106,7 @@ public class PaymentController {
 
 
     @RequestMapping("/thank-you")
-    public String vnpayReturn(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+    public String vnpayReturn(HttpServletRequest request, Model model, HttpSession session) throws UnsupportedEncodingException {
         Map<String, String> vnp_Params = new HashMap<>();
         Map<String, String[]> requestParams = request.getParameterMap();
         for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
@@ -102,7 +115,6 @@ public class PaymentController {
 
         // Nhận vaccineID từ request
         String vaccineID = request.getParameter("vaccineID");
-        System.out.println("Vaccine ID: " + vaccineID);
 
         // Kiểm tra chữ ký bảo mật
         String vnp_SecureHash = request.getParameter("vnp_SecureHash");
@@ -121,9 +133,8 @@ public class PaymentController {
             } else {
                 model.addAttribute("message", "Giao dịch không thành công. Mã lỗi: " + responseCode);
             }
-
-        // Trả vaccineID về trang kết quả
-        model.addAttribute("vaccineID", vaccineID);
+        model.addAttribute("patient", patientService.getPatientByUser(userService.getUserByEmail((String) session.getAttribute("email"))));
+            model.addAttribute("vaccine", vaccineService.findById(Long.parseLong(vaccineID)).get());
 
         return "client/thank-you"; // Trang JSP hiển thị kết quả
     }

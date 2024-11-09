@@ -24,3 +24,10 @@ This project is a system to manage and schedule vaccination appointments for peo
 - **MySQL/PostgreSQL**: For database.
 - **Maven**: For dependency management.
 - **Spring Security**: For securing the application (optional).
+
+Test Payment
+
+9704198526191432198
+NGUYEN VAN A
+07/15
+123456

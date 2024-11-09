@@ -15,7 +15,7 @@
 <body>
     <!-- ======= Header ======= -->
     <jsp:include page="layout/header.jsp" />
-    <main>
+    <main class="mt-5">
         <section style="background-color: #eee;">
             <div class="text-center container py-5">
                 <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>

@@ -15,8 +15,8 @@
 <body>
     <!-- ======= Header ======= -->
     <jsp:include page="layout/header.jsp" />
-    <section class="h-100 h-custom" style="background-color: #eee;">
-        <div class="container h-100 py-3">
+    <section class="h-100 h-custom mt-5" style="background-color: #eee;">
+        <div class="container h-100 py-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col">
                     <div class="card shopping-cart" style="border-radius: 15px;">

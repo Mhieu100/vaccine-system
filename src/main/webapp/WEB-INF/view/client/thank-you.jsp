@@ -16,62 +16,69 @@
 <!-- ======= Header ======= -->
 <jsp:include page="layout/header.jsp" />
 <%--<p>${message}</p>--%>
-<div class="card">
-    <div class="card-body mx-4">
-        <div class="container">
-            <p class="my-5 mx-5" style="font-size: 30px;">Bạn đã hoàn thành </p>
-            <div class="row">
-                <ul class="list-unstyled">
-                    <li class="text-black">John Doe</li>
-                    <li class="text-muted mt-1"><span class="text-black">Invoice</span> #12345</li>
-                    <li class="text-black mt-1">April 17 2021</li>
-                </ul>
-                <hr>
-                <div class="col-xl-10">
-                    <p>Pro Package</p>
+<main class="container" style="margin-top: 100px">
+    <div class="card">
+        <div class="card-body mx-4">
+            <div class="container">
+                <p class="my-3" style="font-size: 30px; text-align: center; text-transform: uppercase">Bạn đã hoàn thành đăng ký tiểm chủng</p>
+                <div class="row">
+                    <div class="col-xl-10">
+                        <p>Người đăng ký</p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p class="float-end">${patient.user.fullName}
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="col-xl-10">
+                        <p>Số liên hệ</p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p class="float-end">+ ${patient.user.phone}
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="col-xl-6">
+                        <p>Phương thức thanh toán</p>
+                    </div>
+                    <div class="col-xl-6">
+                        <p class="float-end">Thanh toán tài khỏan ngân hàng (<span class="text-success">${message}</span>)</p>
+                    </div>
+                    <hr>
+                    <div class="col-lg-6 py-2">
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="${vaccine.image}"
+                                     class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                            </div>
+                            <div class="flex-grow-1 ms-3 ">
+                                <h5 class="text-primary">Vắn xin : ${vaccine.name}</h5>
+                                <h6 style="color: #9e9e9e;">Bệnh : ${vaccine.disease}</h6>
+                                <h6 style="color: #9e9e9e;">Xuất sứ : ${vaccine.country}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 py-2">
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="flex-grow-1 ms-3">
+                                <h5 class="text-primary">Địa điểm : Trung tâm tiêm chủng VNVC</h5>
+                                <h6 style="color: #9e9e9e;">Giờ : 11:30 AM</h6>
+                                <h6 style="color: #9e9e9e;">Ngày : 20/11/2024</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+                    <div class="d-flex justify-content-between mb-2">
+                        <h5 class="fw-bold mb-0">Tổng thanh toán:</h5>
+                        <h5 class="fw-bold mb-0"><fmt:formatNumber value="${vaccine.price}" type="number" groupingUsed="true" /> đ</h5>
+                    </div>
+                    <a href="/home" class="btn btn-success my-3"> < Quay lại trang chủ</a>
                 </div>
-                <div class="col-xl-2">
-                    <p class="float-end">$199.00
-                    </p>
-                </div>
-                <hr>
             </div>
-            <div class="row">
-                <div class="col-xl-10">
-                    <p>Consulting</p>
-                </div>
-                <div class="col-xl-2">
-                    <p class="float-end">$100.00
-                    </p>
-                </div>
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-xl-10">
-                    <p>Support</p>
-                </div>
-                <div class="col-xl-2">
-                    <p class="float-end">$10.00
-                    </p>
-                </div>
-                <hr style="border: 2px solid black;">
-            </div>
-            <div class="row text-black">
-
-                <div class="col-xl-12">
-                    <p class="float-end fw-bold">Total: $10.00
-                    </p>
-                </div>
-                <hr style="border: 2px solid black;">
-            </div>
-            <div class="text-center" style="margin-top: 90px;">
-                <a><u class="text-info">View in browser</u></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-            </div>
-
         </div>
     </div>
-</div>
+</main>
+
 <jsp:include page="layout/jsLink.jsp" />
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-body-tertiary">
     <div class="container">
         <a class="navbar-brand me-2" href="https://mdbgo.com/">
             <img
